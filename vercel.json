@@ -1,7 +1,10 @@
 {
-  "framework": "nextjs",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci --no-audit --no-fund",
+  "buildCommand": "node -v && npm -v && npm run build",
+  "outputDirectory": "dist",
   "functions": {
-    "app/api/**/*.ts": {
+    "api/**/*.ts": {
       "maxDuration": 10
     }
   }
