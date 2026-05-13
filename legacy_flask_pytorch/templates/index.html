@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Skin Cancer Detection Demo</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <h1>Skin Cancer Detection</h1>
+      <p class="sub">
+        Upload an image and get a prediction.
+        <span class="pill">IMG {{ img_size }}×{{ img_size }}</span>
+        {% if has_binary %}<span class="pill ok">Binary ON</span>{% else %}<span class="pill off">Binary OFF</span>{% endif %}
+        {% if has_multi %}<span class="pill ok">Multi-class ON</span>{% else %}<span class="pill off">Multi-class OFF</span>{% endif %}
+      </p>
+    </header>
+
+    <main class="card">
+      <div class="uploader">
+        <input id="fileInput" type="file" accept="image/*"/>
+        <button id="btnPredict">Predict</button>
+      </div>
+
+      <div class="grid">
+        <div class="preview">
+          <div class="preview-box">
+            <img id="previewImg" alt="preview"/>
+            <div id="previewHint" class="hint">No image selected</div>
+          </div>
+        </div>
+
+        <div class="result">
+          <div id="status" class="status">Ready.</div>
+
+          <section class="section">
+            <h3>Binary</h3>
+            <div id="binBox" class="box muted">No result yet.</div>
+          </section>
+
+          <section class="section">
+            <h3>Multi-class</h3>
+            <div id="multiBox" class="box muted">No result yet.</div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="footnote">
+        This tool is for educational purposes only and does not replace professional medical advice.
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
